@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+  <!--<![endif]-->
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Responsive Divs</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--------------------- font-awesome css -------------------->
+    <link rel="stylesheet" type="text/css" href="css/all.css" />
+
+    <!--------------------- font css -------------------->
+    <link
+      href="https://fonts.googleapis.com/css?family=Quicksand:400,500,700"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Varela+Round"
+      rel="stylesheet"
+    />
+
+    <!--------------------- bootstrap css -------------------->
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.css" />
+    <style>
+      body {
+        font-family: "Varela Round", sans-serif;
+        font-size: 13px;
+        width: 100%;
+      }
+      .box {
+        width: 50vw;
+        height: 50vh;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 1s ease;
+        overflow: hidden;
+      }
+      .box-full-screen {
+        height: 100vh !important;
+        width: 100% !important;
+        overflow-y: auto;
+        background: transparent !important;
+      }
+      .box-hide {
+        height: 0vh !important;
+        width: 0vw !important;
+        font-size: 0px !important;
+        z-index: -1;
+      }
+      .middle-text {
+        color: rgba(52, 73, 94, 1);
+        font-size: 50px;
+        -webkit-transition: color 1s;
+        -moz-transition: color 1s;
+        -ms-transition: color 1s;
+        -o-transition: color 1s;
+        transition: color 1s;
+      }
+      .middle-text:hover {
+        color: #e74c3c;
+      }
+      .media {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background-color: teal;
+        background: url("./img/2.jpg") no-repeat;
+        background-size: cover;
+      }
+      #media-scrollable div:first-child {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background: url("./img/2.jpg") no-repeat;
+        background-size: cover;
+      }
+      #media-scrollable div:first-child > p {
+        color: rgba(52, 73, 94, 1);
+        font-size: 80px;
+        -webkit-transition: color 1s;
+        -moz-transition: color 1s;
+        -ms-transition: color 1s;
+        -o-transition: color 1s;
+        transition: color 1s;
+      }
+      .chefee {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: green;
+        background: url("./img/1.jpg") no-repeat;
+        background-size: cover;
+      }
+      #chefee-scrollable div:first-child {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background: url("./img/1.jpg") no-repeat;
+        background-size: cover;
+      }
+      #chefee-scrollable div:first-child > p {
+        color: rgba(52, 73, 94, 1);
+        font-size: 80px;
+        -webkit-transition: color 1s;
+        -moz-transition: color 1s;
+        -ms-transition: color 1s;
+        -o-transition: color 1s;
+        transition: color 1s;
+      }
+      .dintly {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        background-color: aquamarine;
+        background: url("./img/3.jpg") no-repeat;
+        background-size: cover;
+      }
+      #dintly-scrollable div:first-child {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background: url("./img/3.jpg") no-repeat;
+        background-size: cover;
+      }
+      #dintly-scrollable div:first-child > p {
+        color: rgba(52, 73, 94, 1);
+        font-size: 80px;
+        -webkit-transition: color 1s;
+        -moz-transition: color 1s;
+        -ms-transition: color 1s;
+        -o-transition: color 1s;
+        transition: color 1s;
+      }
+      .hanitize {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        background-color: rebeccapurple;
+        background: url("./img/4.jpg") no-repeat;
+        background-size: cover;
+      }
+      #hanitize-scrollable div:first-child {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        justify-content: center;
+        align-items: center;
+        background: url("./img/4.jpg") no-repeat;
+        background-size: cover;
+      }
+      #hanitize-scrollable div:first-child > p {
+        color: rgba(52, 73, 94, 1);
+        font-size: 80px;
+        -webkit-transition: color 1s;
+        -moz-transition: color 1s;
+        -ms-transition: color 1s;
+        -o-transition: color 1s;
+        transition: color 1s;
+      }
+      .close {
+        position: fixed;
+        top: 5%;
+        right: 5%;
+        width: 40px;
+        height: 40px;
+        background: url("./img/close.svg") no-repeat;
+        background-size: contain;
+        z-index: 99;
+        cursor: pointer;
+        transition: all 500ms ease;
+      }
+      .close:hover {
+        transform: rotate(180deg);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="close" style="display: none;"></div>
+    <div class="media box">
+      <p class="middle-text">Media</p>
+      <div id="media-scrollable" style="display: none;">
+        <div>
+          <p>Media</p>
+        </div>
+        <!-- It will contain background -->
+        <div
+          style="
+            width: 200px;
+            height: 1999px;
+            background-color: rebeccapurple;
+            margin: auto;
+          "
+        ></div>
+      </div>
+    </div>
+    <div class="chefee box">
+      <p class="middle-text">Chefee</p>
+      <div id="chefee-scrollable" style="display: none;">
+        <div>
+          <p>Chefee Platform</p>
+        </div>
+        <!-- It will contain background -->
+        <div
+          style="
+            width: 200px;
+            height: 1999px;
+            background-color: black;
+            margin: auto;
+          "
+        ></div>
+      </div>
+    </div>
+    <div class="dintly box">
+      <p class="middle-text">Dintly</p>
+      <div id="dintly-scrollable" style="display: none;">
+        <div>
+          <p>Dintly</p>
+        </div>
+        <!-- It will contain background -->
+        <div
+          style="
+            width: 200px;
+            height: 1999px;
+            background-color: goldenrod;
+            margin: auto;
+          "
+        ></div>
+      </div>
+    </div>
+    <div class="hanitize box">
+      <p class="middle-text">Hanitize</p>
+      <div id="hanitize-scrollable" style="display: none;">
+        <div>
+          <p>hanitize</p>
+        </div>
+        <!-- It will contain background -->
+        <div
+          style="
+            width: 200px;
+            height: 1999px;
+            background-color: rgb(148, 37, 46);
+            margin: auto;
+          "
+        ></div>
+      </div>
+    </div>
+
+    <!--------------------- jquery js -------------------->
+    <script src="js/jquery-3.0.0.min.js"></script>
+    <!--------------------- bootstrap js -------------------->
+    <!-- <script src="js/boostrap.js"></script> -->
+    <script>
+      let currentExpandedElement;
+      $(function () {
+        $(".close").click(function () {
+          $(".close").hide();
+          $(".box").not(currentExpandedElement).toggleClass("box-hide");
+          $(currentExpandedElement).toggleClass("box-full-screen");
+
+          if ($(currentExpandedElement).hasClass("media")) {
+            // show the contents of media div scrollable
+            $("#media-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if ($(currentExpandedElement).hasClass("chefee")) {
+            // show the contents of media div scrollable
+            $("#chefee-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if ($(currentExpandedElement).hasClass("dintly")) {
+            // show the contents of media div scrollable
+            $("#dintly-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if ($(currentExpandedElement).hasClass("hanitize")) {
+            // show the contents of media div scrollable
+            $("#hanitize-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if (!$(currentExpandedElement).hasClass("box-full-screen")) {
+            $(".middle-text").show();
+            $("#media-scrollable").hide();
+            $("#chefee-scrollable").hide();
+            $("#dintly-scrollable").hide();
+            $("#hanitize-scrollable").hide();
+          }
+        });
+
+        $(".box").click(function () {
+          $(".close").show();
+          $(".box").not(this).toggleClass("box-hide");
+          $(this).toggleClass("box-full-screen");
+          currentExpandedElement = this;
+
+          if ($(this).hasClass("media")) {
+            // show the contents of media div scrollable
+            $("#media-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if ($(this).hasClass("chefee")) {
+            // show the contents of media div scrollable
+            $("#chefee-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if ($(this).hasClass("dintly")) {
+            // show the contents of media div scrollable
+            $("#dintly-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if ($(this).hasClass("hanitize")) {
+            // show the contents of media div scrollable
+            $("#hanitize-scrollable").show();
+            $(".middle-text").hide();
+          }
+          if (!$(this).hasClass("box-full-screen")) {
+            $(".middle-text").show();
+            $("#media-scrollable").hide();
+            $("#chefee-scrollable").hide();
+            $("#dintly-scrollable").hide();
+            $("#hanitize-scrollable").hide();
+            $(".close").hide();
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
